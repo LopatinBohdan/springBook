@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    .info{
+      margin-left: 5%;
+    }
+  </style>
+</head>
+<body>
+<header th:insert="section/header :: header"></header>
+
+<div class="info">
+  <h4 th:text="${book.getTitle()}"></h4>
+  <p th:text="${book.getAuthor()}"></p>
+  <p th:text="${book.getYear()}"></p>
+  <p th:text="${book.getGenre()}"></p>
+  <p th:text="${book.getPages()}"></p>
+  <p th:text="${book.getDescription()}"></p>
+</div>
+<button class="btn btn-link"><a href="/">Back</a></button>
+
+
+<div th:insert="section/footer :: footer"></div>
+</body>
+</html>

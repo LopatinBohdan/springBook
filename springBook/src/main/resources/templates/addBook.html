@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        form{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+<header th:insert="section/header :: header"></header>
+
+<form action="/add" method="post">
+    <input type="text" name="title" placeholder="title"><br>
+    <input type="text" name="author" placeholder="author"><br>
+    <input type="number" name="year" placeholder="year" min="0" max="2023"><br>
+    <input type="text" name="genre" placeholder="genre"><br>
+    <input type="number" name="pages" placeholder="pages" min="0"><br>
+    <textarea name="description" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="Add" class="btn btn-success">
+</form>
+
+<div th:insert="section/footer :: footer"></div>
+</body>
+</html>

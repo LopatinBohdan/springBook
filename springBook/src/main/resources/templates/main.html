@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        header{
+            background-image: url("https://foodtank.com/wp-content/uploads/2021/07/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+        }
+        body{
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ7BbgCUmES2JosSRQMlApOVU_Dk44KQ_4LQ&usqp=CAU");
+            background-repeat: no-repeat;
+            background-size:cover;
+            padding: 1%;
+        }
+        footer {
+            margin-top: 800px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--<header th:insert="section/header :: header"></header>-->
+
+<button class="btn btn-link"><a href="/add">Add book</a></button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Info</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr th:each="item:${books}">
+            <th th:text="${item.getId()}"></th>
+            <th th:text="${item.getTitle()}"></th>
+            <th th:text="${item.getAuthor()}"></th>
+            <th th:text="${item.getGenre()}"></th>
+            <th><a th:href="'/'+${item.getId()}" class="btn btn-primary">Info</a></th>
+            <th><a th:href="@{/{id}/edit(id=${item.getId()})}" class="btn btn-secondary">Edit</a></th>
+            <th><a th:href="@{/{id}/delete(id=${item.getId()})}" class="btn btn-danger">Delete</a></th>
+        </tr>
+    </tbody>
+</table>
+<div th:insert="section/footer :: footer"></div>
+</body>
+</html>
